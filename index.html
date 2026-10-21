@@ -30,76 +30,8 @@
       <a class="botao" href="#equipamentos">Ver equipamentos</a>
     </div>
 
-    <!-- Tambaqui nadando -->
-    <div class="aquario" aria-hidden="true">
-      <div class="nado">
-        <svg class="tambaqui" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="corpo" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"  stop-color="#1d2b22"/>
-              <stop offset="38%" stop-color="#3f5a3a"/>
-              <stop offset="62%" stop-color="#c9a24a"/>
-              <stop offset="100%" stop-color="#e8873a"/>
-            </linearGradient>
-            <linearGradient id="nadadeira" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2a2a26"/>
-              <stop offset="100%" stop-color="#111"/>
-            </linearGradient>
-            <radialGradient id="brilho" cx="0.35" cy="0.3" r="0.6">
-              <stop offset="0%" stop-color="#fff" stop-opacity=".28"/>
-              <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-
-          <!-- cauda -->
-          <g class="cauda">
-            <path d="M70 110 L12 52 Q28 110 12 168 Z" fill="url(#nadadeira)"/>
-          </g>
-
-          <!-- nadadeira dorsal -->
-          <path d="M150 34 Q178 6 206 30 L196 44 Z" fill="url(#nadadeira)"/>
-          <!-- nadadeira anal -->
-          <path d="M118 176 Q140 210 170 190 L162 176 Z" fill="url(#nadadeira)"/>
-
-          <!-- corpo redondo -->
-          <path d="M66 110
-                   C 70 52, 150 22, 222 40
-                   C 272 54, 300 86, 300 112
-                   C 300 140, 270 176, 214 186
-                   C 150 198, 72 170, 66 110 Z"
-                fill="url(#corpo)"/>
-          <path d="M66 110 C 70 52, 150 22, 222 40 C 272 54, 300 86, 300 112 C 300 140, 270 176, 214 186 C 150 198, 72 170, 66 110 Z"
-                fill="url(#brilho)"/>
-
-          <!-- escamas -->
-          <g class="escamas" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="2">
-            <path d="M110 80 q10 10 0 20 M130 72 q10 10 0 20 M150 66 q10 10 0 20 M170 64 q10 10 0 20 M190 66 q10 10 0 20"/>
-            <path d="M120 104 q10 10 0 20 M140 98 q10 10 0 20 M160 96 q10 10 0 20 M180 96 q10 10 0 20 M200 98 q10 10 0 20"/>
-          </g>
-
-          <!-- opérculo -->
-          <path d="M238 62 Q222 112 242 160" fill="none" stroke="#1d2b22" stroke-opacity=".45" stroke-width="4" stroke-linecap="round"/>
-
-          <!-- nadadeira peitoral -->
-          <g class="peitoral">
-            <path d="M226 128 Q196 140 196 160 Q216 150 234 138 Z" fill="#2b2b25" opacity=".85"/>
-          </g>
-
-          <!-- olho -->
-          <circle cx="262" cy="94" r="11" fill="#f4e7c3"/>
-          <circle cx="264" cy="94" r="6"  fill="#111"/>
-          <circle cx="266" cy="91" r="2"  fill="#fff"/>
-
-          <!-- boca -->
-          <path d="M292 122 Q284 128 276 124" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="bolha b1"></span>
-      <span class="bolha b2"></span>
-      <span class="bolha b3"></span>
-      <span class="bolha b4"></span>
-      <span class="bolha b5"></span>
-    </div>
+    <!-- Tambaqui nadando (desenhado em peixe.js) -->
+    <canvas id="rio" class="rio" aria-hidden="true"></canvas>
 
     <svg class="onda" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 20 1440 60 L1440 120 L0 120 Z"/>
@@ -156,5 +88,6 @@
 
   <script src="produtos.js"></script>
   <script src="app.js"></script>
+  <script src="peixe.js"></script>
 </body>
 </html>
