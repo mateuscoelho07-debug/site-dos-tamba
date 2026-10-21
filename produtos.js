@@ -104,18 +104,11 @@ const PRODUTOS = [
   },
   {
     categoria: "acessorios",
-    nome: "Alicate de contenção (boga grip)",
-    descricao: "Segura o bicho pela boca sem machucar. Essencial pra foto e pro pesque-solte.",
+    nome: "Puçá grande com rede emborrachada",
+    descricao: "É o jeito certo de embarcar peixe grande: boca larga, rede emborrachada que não arranca escama nem enrosca o anzol. Hulk de 20 kg não cabe em puçá pequeno.",
     link: "",
     destaque: true,
-    tags: ["foto", "pesque-solte"],
-  },
-  {
-    categoria: "acessorios",
-    nome: "Puçá grande com rede emborrachada",
-    descricao: "Rede emborrachada não arranca escama nem enrosca o anzol. Hulk de 20 kg não cabe em puçá pequeno.",
-    link: "",
-    tags: ["puçá", "rede"],
+    tags: ["puçá", "rede", "pesque-solte", "foto"],
   },
   {
     categoria: "acessorios",
