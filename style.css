@@ -38,6 +38,7 @@ a { color: inherit; }
     radial-gradient(1200px 500px at 80% 10%, rgba(233,185,73,.18), transparent 60%),
     linear-gradient(180deg, var(--rio-claro) 0%, var(--rio) 55%, var(--rio-escuro) 100%);
   padding: 0 16px 140px;
+  min-height: 620px;
 }
 
 .topo {
@@ -96,70 +97,14 @@ h1 em { font-style: normal; color: var(--dourado); }
 }
 .botao:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(232,135,58,.5); }
 
-/* ---------- Aquário + tambaqui ---------- */
-.aquario {
+/* ---------- Rio + tambaqui (canvas desenhado em peixe.js) ---------- */
+.rio {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
-}
-
-.nado {
-  position: absolute;
-  top: 46%;
-  left: 0;
-  width: clamp(180px, 26vw, 320px);
-  animation: atravessa 18s linear infinite;
-}
-
-.tambaqui {
-  display: block;
-  width: 100%;
-  filter: drop-shadow(0 12px 18px rgba(0,0,0,.35));
-  animation: balanca 2.4s ease-in-out infinite;
-}
-
-.cauda { transform-origin: 70px 110px; animation: rabada .5s ease-in-out infinite alternate; }
-.peitoral { transform-origin: 228px 132px; animation: abana .7s ease-in-out infinite alternate; }
-
-@keyframes atravessa {
-  0%   { transform: translateX(-40vw); }
-  100% { transform: translateX(140vw); }
-}
-@keyframes balanca {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50%      { transform: translateY(-14px) rotate(2deg); }
-}
-@keyframes rabada {
-  from { transform: scaleX(1) skewY(-8deg); }
-  to   { transform: scaleX(.8) skewY(8deg); }
-}
-@keyframes abana {
-  from { transform: rotate(-10deg); }
-  to   { transform: rotate(12deg); }
-}
-
-.bolha {
-  position: absolute;
-  bottom: 60px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.45);
-  background: rgba(255,255,255,.08);
-  animation: sobe 7s ease-in infinite;
-}
-.b1 { left: 62%; animation-delay: 0s; }
-.b2 { left: 70%; width: 8px; height: 8px; animation-delay: 1.8s; }
-.b3 { left: 78%; width: 16px; height: 16px; animation-delay: 3.2s; }
-.b4 { left: 86%; animation-delay: 4.6s; }
-.b5 { left: 54%; width: 9px; height: 9px; animation-delay: 5.5s; }
-
-@keyframes sobe {
-  0%   { transform: translateY(0) translateX(0); opacity: 0; }
-  10%  { opacity: 1; }
-  50%  { transform: translateY(-220px) translateX(10px); }
-  100% { transform: translateY(-460px) translateX(-6px); opacity: 0; }
 }
 
 .onda {
@@ -170,12 +115,6 @@ h1 em { font-style: normal; color: var(--dourado); }
   height: 90px;
   fill: var(--areia);
   z-index: 2;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nado { animation: none; left: auto; right: 6%; }
-  .tambaqui, .cauda, .peitoral, .bolha { animation: none; }
-  .bolha { display: none; }
 }
 
 /* ---------- Seções ---------- */
@@ -322,6 +261,5 @@ h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); margin: 0 0 6px; color: var(--rio)
 
 @media (max-width: 600px) {
   .links { display: none; }
-  .hero { padding-bottom: 180px; }
-  .nado { top: auto; bottom: 70px; }
+  .hero { padding-bottom: 230px; }
 }
