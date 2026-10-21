@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site dos Tamba</title>
+  <meta name="description" content="A wiki do pescador de tambaqui e tambacu: equipamentos testados pra embarcar hulk e verdão.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <nav class="topo">
+      <a class="marca" href="#">Site dos <span>Tamba</span></a>
+      <div class="links">
+        <a href="#equipamentos">Equipamentos</a>
+        <a href="#girias">Dicionário</a>
+        <a href="#dicas">Dicas</a>
+      </div>
+    </nav>
+
+    <div class="hero-texto">
+      <p class="selo">Wiki do pescador de redondo</p>
+      <h1>Equipamento certo pra embarcar <em>hulk</em> e <em>verdão</em></h1>
+      <p class="sub">Varas, molinetes, linhas, anzóis e iscas que aguentam a pancada do tambaqui e do tambacu. Tudo testado na beira do tanque.</p>
+      <a class="botao" href="#equipamentos">Ver equipamentos</a>
+    </div>
+
+    <!-- Tambaqui nadando -->
+    <div class="aquario" aria-hidden="true">
+      <div class="nado">
+        <svg class="tambaqui" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="corpo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#1d2b22"/>
+              <stop offset="38%" stop-color="#3f5a3a"/>
+              <stop offset="62%" stop-color="#c9a24a"/>
+              <stop offset="100%" stop-color="#e8873a"/>
+            </linearGradient>
+            <linearGradient id="nadadeira" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a2a26"/>
+              <stop offset="100%" stop-color="#111"/>
+            </linearGradient>
+            <radialGradient id="brilho" cx="0.35" cy="0.3" r="0.6">
+              <stop offset="0%" stop-color="#fff" stop-opacity=".28"/>
+              <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- cauda -->
+          <g class="cauda">
+            <path d="M70 110 L12 52 Q28 110 12 168 Z" fill="url(#nadadeira)"/>
+          </g>
+
+          <!-- nadadeira dorsal -->
+          <path d="M150 34 Q178 6 206 30 L196 44 Z" fill="url(#nadadeira)"/>
+          <!-- nadadeira anal -->
+          <path d="M118 176 Q140 210 170 190 L162 176 Z" fill="url(#nadadeira)"/>
+
+          <!-- corpo redondo -->
+          <path d="M66 110
+                   C 70 52, 150 22, 222 40
+                   C 272 54, 300 86, 300 112
+                   C 300 140, 270 176, 214 186
+                   C 150 198, 72 170, 66 110 Z"
+                fill="url(#corpo)"/>
+          <path d="M66 110 C 70 52, 150 22, 222 40 C 272 54, 300 86, 300 112 C 300 140, 270 176, 214 186 C 150 198, 72 170, 66 110 Z"
+                fill="url(#brilho)"/>
+
+          <!-- escamas -->
+          <g class="escamas" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="2">
+            <path d="M110 80 q10 10 0 20 M130 72 q10 10 0 20 M150 66 q10 10 0 20 M170 64 q10 10 0 20 M190 66 q10 10 0 20"/>
+            <path d="M120 104 q10 10 0 20 M140 98 q10 10 0 20 M160 96 q10 10 0 20 M180 96 q10 10 0 20 M200 98 q10 10 0 20"/>
+          </g>
+
+          <!-- opérculo -->
+          <path d="M238 62 Q222 112 242 160" fill="none" stroke="#1d2b22" stroke-opacity=".45" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- nadadeira peitoral -->
+          <g class="peitoral">
+            <path d="M226 128 Q196 140 196 160 Q216 150 234 138 Z" fill="#2b2b25" opacity=".85"/>
+          </g>
+
+          <!-- olho -->
+          <circle cx="262" cy="94" r="11" fill="#f4e7c3"/>
+          <circle cx="264" cy="94" r="6"  fill="#111"/>
+          <circle cx="266" cy="91" r="2"  fill="#fff"/>
+
+          <!-- boca -->
+          <path d="M292 122 Q284 128 276 124" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="bolha b1"></span>
+      <span class="bolha b2"></span>
+      <span class="bolha b3"></span>
+      <span class="bolha b4"></span>
+      <span class="bolha b5"></span>
+    </div>
+
+    <svg class="onda" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 20 1440 60 L1440 120 L0 120 Z"/>
+    </svg>
+  </header>
+
+  <main>
+    <section id="equipamentos" class="secao">
+      <h2>Equipamentos</h2>
+      <p class="secao-sub">Os selos <span class="mini-selo">Escolha do Hulk</span> são os que eu levaria pro pesqueiro amanhã.</p>
+
+      <div class="controles">
+        <input id="busca" type="search" placeholder="Procurar: drag, ração, chicote..." aria-label="Procurar equipamento">
+        <div id="filtros" class="filtros" role="tablist"></div>
+      </div>
+
+      <div id="grade" class="grade"></div>
+      <p id="vazio" class="vazio" hidden>Nada por aqui. O peixe tá manhoso, tenta outra busca.</p>
+    </section>
+
+    <section id="girias" class="secao alt">
+      <h2>Dicionário do pesqueiro</h2>
+      <p class="secao-sub">Chegou agora no tanque? Aprende a língua da galera.</p>
+      <dl class="girias">
+        <div><dt>Hulk</dt><dd>Tambaqui gigante, daqueles que entortam a vara e deixam o braço tremendo.</dd></div>
+        <div><dt>Verdão</dt><dd>Peixe grandão de lombo escuro esverdeado. Quando aparece, todo mundo para pra ver.</dd></div>
+        <div><dt>Redondo</dt><dd>Apelido carinhoso de tambaqui, tambacu e cia., por causa do corpo largo.</dd></div>
+        <div><dt>Bitelo</dt><dd>Peixe muito acima da média. Rendeu foto? Era bitelo.</dd></div>
+        <div><dt>Cantar o drag</dt><dd>Quando o peixe puxa e o molinete solta linha fazendo aquele barulho bom.</dd></div>
+        <div><dt>Cevar</dt><dd>Jogar ração ou massa na água pra juntar os peixes no seu ponto.</dd></div>
+        <div><dt>Beliscada</dt><dd>Aquele toquinho na isca antes da fisgada. Calma, segura o coração.</dd></div>
+        <div><dt>Embarcar</dt><dd>Trazer o peixe pra fora d'água (ou pro barco). Embarcou, valeu o dia.</dd></div>
+        <div><dt>Tambacu</dt><dd>Híbrido de tambaqui com pacu. Briga de pacu, tamanho de tambaqui.</dd></div>
+        <div><dt>Pesque-solte</dt><dd>Tira a foto, devolve o bicho com cuidado. Pra ele virar hulk de novo.</dd></div>
+      </dl>
+    </section>
+
+    <section id="dicas" class="secao">
+      <h2>Dicas rápidas pra não perder o redondo</h2>
+      <ol class="dicas">
+        <li><strong>Regula o drag antes de lançar.</strong> Puxa a linha com a mão: tem que sair firme, mas sair. Drag travado é linha estourada.</li>
+        <li><strong>Não fisga na beliscada.</strong> O tambaqui mastiga antes. Espera a boia afundar de vez ou a linha correr.</li>
+        <li><strong>Usa chicote.</strong> O dente do redondo corta linha fina como se fosse nada.</li>
+        <li><strong>Cansa o peixe sem pressa.</strong> Vara alta, deixa o drag trabalhar e recolhe quando ele der folga.</li>
+        <li><strong>Molha a mão antes de pegar.</strong> E usa alicate de contenção. O peixe agradece, e a foto fica melhor.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Feito por quem perde o sono por causa de hulk. 🐟</p>
+    <p class="aviso">Alguns links deste site são de afiliado do Mercado Livre. Se você comprar por eles, o site recebe uma pequena comissão, sem custo extra pra você. Preços e disponibilidade são do Mercado Livre.</p>
+  </footer>
+
+  <script src="produtos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
