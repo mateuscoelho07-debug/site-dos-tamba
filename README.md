@@ -46,5 +46,6 @@ Enquanto `link` estiver vazio (`""`), o botão do card mostra "Link em breve". D
 - `index.html`: página, dicionário de gírias e dicas
 - `produtos.js`: lista de equipamentos e links (o único arquivo que você precisa mexer)
 - `app.js`: monta os cards, busca e filtros
-- `peixe.js`: o tambaqui animado (canvas), com água, luz e bolhas
+- `peixe.js`: anima a foto do tambaqui nadando, com água, luz e bolhas
+- `img/tambaqui.png`: a foto do tambaqui com fundo transparente, olhando pra esquerda. Pra trocar o peixe, substitua esse arquivo por outra foto no mesmo formato
 - `style.css`: visual do site
