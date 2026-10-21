@@ -104,11 +104,11 @@ const PRODUTOS = [
   },
   {
     categoria: "acessorios",
-    nome: "Puçá grande com rede emborrachada",
-    descricao: "É o jeito certo de embarcar peixe grande: boca larga, rede emborrachada que não arranca escama nem enrosca o anzol. Hulk de 20 kg não cabe em puçá pequeno.",
+    nome: "Passaguá grande com rede emborrachada",
+    descricao: "É o jeito certo de embarcar peixe grande: boca larga e rede emborrachada, que não arranca escama nem enrosca o anzol. Hulk de 20 kg não cabe em passaguá pequeno.",
     link: "",
     destaque: true,
-    tags: ["puçá", "rede", "pesque-solte", "foto"],
+    tags: ["passaguá", "rede", "pesque-solte", "foto"],
   },
   {
     categoria: "acessorios",
