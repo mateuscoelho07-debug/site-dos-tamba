@@ -13,7 +13,7 @@ Reunir em um só lugar dicas e indicações de equipamentos testados para a pesc
 - **Linhas e multifilamentos**
 - **Anzóis, chicotes e empates**
 - **Iscas e cevas**: ração, massas, frutas
-- **Acessórios**: alicates, puçás, caixas e bolsas
+- **Acessórios**: alicates, passaguás, caixas e bolsas
 
 ## Aviso de afiliados
 

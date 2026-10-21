@@ -15,12 +15,12 @@
   // Posições na foto (fração da largura/altura). A foto olha pra esquerda.
   const PEDUNCULO = 0.83; // onde o corpo vira cauda
   const BOCA = [0.012, 0.6];
-  const TIRA = 3; // largura de cada tira em pixels da foto
+  const TIRA = 3; // largura de cada tira em pixels da foto (peixes longe usam tiras maiores, que custam menos)
 
   class Tambaqui {
     constructor(o) {
       Object.assign(this, {
-        x: 0, y: 0, L: 300, dir: 1, vel: 50, alfa: 1, sombra: true, desfoque: 0,
+        x: 0, y: 0, L: 300, dir: 1, vel: 50, alfa: 1, sombra: true, simples: false, cada: 1, tira: TIRA, cont: 0, ultL: 0,
         fase: Math.random() * 6, giro: 0, girando: false, alvoY: null, vy: 0,
       }, o);
       this.lim = { xmin: 0, xmax: 0, ymin: 0, ymax: 0 };
@@ -84,13 +84,13 @@
       const A = this.girando ? 0.6 : 0.42;
       const angulos = [], posicoes = [];
       let X = 0;
-      for (let sx = 0; sx < fw; sx += TIRA) {
-        const u = (sx + TIRA / 2) / fw;
+      for (let sx = 0; sx < fw; sx += this.tira) {
+        const u = (sx + this.tira / 2) / fw;
         const env = Math.pow(Math.max(0, (u - 0.35) / 0.65), 2);
         // a cauda é mais mole: amplitude extra depois do pedúnculo
         const extra = u > PEDUNCULO ? 1 + (u - PEDUNCULO) * 2.2 : 1;
         const phi = A * env * extra * Math.sin(this.fase - 5.4 * u) + 0.015 * Math.sin(this.fase);
-        const w = Math.min(TIRA, fw - sx);
+        const w = Math.min(this.tira, fw - sx);
         const dw = w * Math.cos(phi) * q;
         c.drawImage(foto, sx, 0, w, fh, X, 0, dw + 0.7, H);
         angulos.push(phi);
@@ -98,10 +98,18 @@
         X += dw;
       }
 
-      // luz: o flanco que vira pra cima/pra frente brilha, o outro escurece
       c.globalCompositeOperation = "source-atop";
+      if (this.simples) {
+        // peixe longe: só um tom de água, sem luz nem cáusticas (ninguém vê e custa caro)
+        c.fillStyle = "rgba(20,70,60,0.2)";
+        c.fillRect(0, 0, L, H);
+        c.globalCompositeOperation = "source-over";
+        return;
+      }
+
+      // luz: o flanco que vira pra cima/pra frente brilha, o outro escurece
       const gl = c.createLinearGradient(0, 0, X, 0);
-      for (let i = 0; i < angulos.length; i += 4) {
+      for (let i = 0; i < angulos.length; i += Math.ceil(4 * TIRA / this.tira)) {
         const v = Math.sin(angulos[i]) * 2;
         gl.addColorStop(Math.min(1, posicoes[i] / X), v > 0 ? `rgba(255,250,215,${Math.min(0.22, v * 0.25)})` : `rgba(0,10,8,${Math.min(0.3, -v * 0.32)})`);
       }
@@ -127,14 +135,19 @@
 
     desenha(c, dpr) {
       if (!foto.complete || !foto.naturalWidth) return;
-      this.montaQuadro(dpr);
       const L = this.L, H = this.altura();
+      // peixe longe: buffer menor e redesenhado só de vez em quando; a posição continua mexendo todo quadro
+      const res = this.simples ? 1 : dpr;
+      if (L !== this.ultL || ++this.cont >= this.cada) {
+        this.montaQuadro(res);
+        this.ultL = L;
+        this.cont = 0;
+      }
       c.save();
       c.translate(this.x, this.y);
       c.rotate(this.inclinacao());
       c.scale(-this.escalaX(), 1); // a foto olha pra esquerda
       c.globalAlpha = this.alfa;
-      if (this.desfoque && "filter" in c) c.filter = `blur(${this.desfoque}px)`;
       if (this.sombra) {
         c.shadowColor = "rgba(0,8,6,0.45)";
         c.shadowBlur = 26 * dpr;
@@ -148,7 +161,26 @@
   // ---------- Cena ----------
   let W = 0, H = 0, dpr = 1;
   const principal = new Tambaqui({ vel: 44, dir: 1 });
-  const fundo = new Tambaqui({ vel: 28, dir: -1, alfa: 0.28, sombra: false, desfoque: 1.5 });
+  // Cardume ao fundo. prof: 0 = lá longe (pequeno, apagado, devagar), 1 = quase na frente do vidro.
+  // y é a faixa de altura (fração do topo) onde ele nada; no celular só metade aparece.
+  const CARDUME = [
+    { prof: 0.15, dir: -1, y: 0.2 },
+    { prof: 0.5, dir: 1, y: 0.62 },
+    { prof: 0.3, dir: 1, y: 0.4 },
+    { prof: 0.8, dir: -1, y: 0.3 },
+    { prof: 0.2, dir: -1, y: 0.78 },
+    { prof: 0.65, dir: 1, y: 0.12 },
+    { prof: 0.4, dir: -1, y: 0.52 },
+  ].map((c) => new Tambaqui({
+    ...c,
+    vel: 14 + c.prof * 22,
+    alfa: 0.12 + c.prof * 0.3,
+    sombra: false,
+    simples: true,
+    cada: c.prof < 0.4 ? 3 : 2,
+    tira: c.prof < 0.4 ? 8 : 5,
+  })).sort((a, b) => a.prof - b.prof); // de trás pra frente
+  let ativos = CARDUME;
 
   const raiosLuz = Array.from({ length: 6 }, (_, k) => ({
     x: 0.05 + k * 0.17 + Math.random() * 0.05, w: 40 + Math.random() * 80,
@@ -174,11 +206,15 @@
       const xmin = Math.min(fimTexto + principal.L * 0.5, xmax - 120);
       principal.lim = { xmin, xmax, ymin: H * 0.4, ymax: H * 0.58 };
     }
-    fundo.L = principal.L * 0.5;
-    fundo.lim = { xmin: fundo.L, xmax: W - fundo.L, ymin: H * 0.18, ymax: H * (movel ? 0.4 : 0.5) };
-    for (const p of [principal, fundo]) {
+    ativos = movel ? CARDUME.filter((f, i) => i % 2 === 0) : CARDUME;
+    for (const f of CARDUME) {
+      f.L = principal.L * (0.28 + f.prof * 0.42);
+      // eles podem sair um pouco da tela antes de dar a volta
+      f.lim = { xmin: -f.L * 0.2, xmax: W + f.L * 0.2, ymin: H * (f.y - 0.05), ymax: H * (f.y + 0.05) };
+    }
+    for (const p of [principal, ...CARDUME]) {
       if (!p.iniciado) {
-        p.x = (p.lim.xmin + p.lim.xmax) / 2;
+        p.x = p.lim.xmin + Math.random() * (p.lim.xmax - p.lim.xmin);
         p.y = (p.lim.ymin + p.lim.ymax) / 2;
         p.iniciado = true;
       }
@@ -196,7 +232,7 @@
 
   function passo(dt, t) {
     principal.atualiza(dt);
-    fundo.atualiza(dt);
+    for (const f of ativos) f.atualiza(dt);
 
     for (const p of particulas) {
       p.x += (p.vx + Math.sin(t * 0.3 + p.y * 10) * 2) * dt / W;
@@ -290,7 +326,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     desenhaRaios(t);
     desenhaParticulas(false);
-    fundo.desenha(ctx, dpr);
+    for (const f of ativos) f.desenha(ctx, dpr);
     principal.desenha(ctx, dpr);
     desenhaBolhas();
     desenhaParticulas(true);
