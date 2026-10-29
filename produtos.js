@@ -20,6 +20,7 @@
 */
 
 const CATEGORIAS = {
+  indicados:  { titulo: "Indicações",              emoji: "⭐" },
   varas:      { titulo: "Varas",                   emoji: "🎣" },
   molinetes:  { titulo: "Molinetes e carretilhas", emoji: "⚙️" },
   linhas:     { titulo: "Linhas",                  emoji: "🧵" },
@@ -29,6 +30,58 @@ const CATEGORIAS = {
 };
 
 const PRODUTOS = [
+  // ---- Indicações com link de afiliado ----
+  // Textos genéricos até a gente confirmar qual produto é cada link: troque nome e descricao por produto.
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 1",
+    descricao: "Equipamento escolhido pra quem vai atrás de hulk e verdão de verdade. Clica no botão amarelo e confere preço, fotos e avaliações direto no Mercado Livre.",
+    link: "https://meli.la/2xc1usP",
+    destaque: true,
+    tags: ["indicação", "hulk", "verdão"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 2",
+    descricao: "Pra montar o kit pro redondo sem passar sufoco na beira do tanque. Dá uma olhada no Mercado Livre e vê se combina com o seu.",
+    link: "https://meli.la/2REMDbi",
+    destaque: true,
+    tags: ["indicação", "kit", "pesqueiro"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 3",
+    descricao: "Um item que não pode faltar na mala de quem pesca tambaqui e tambacu. Confere os detalhes e as avaliações no Mercado Livre.",
+    link: "https://meli.la/2LjrnZ2",
+    destaque: true,
+    tags: ["indicação", "tambaqui", "tambacu"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 4",
+    descricao: "Quem já embarcou bitelo sabe: equipamento bom faz diferença na hora da arrancada. Vê as fotos e o preço no Mercado Livre.",
+    link: "https://meli.la/1gFFBtq",
+    destaque: true,
+    tags: ["indicação", "bitelo"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 5",
+    descricao: "Mais uma indicação pra turbinar a pescaria de redondo. Clica no botão amarelo e confere tudo no Mercado Livre.",
+    link: "https://meli.la/29M6spj",
+    destaque: true,
+    tags: ["indicação", "pescaria"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Indicação nº 6",
+    descricao: "Pra fechar o kit e ir pro tanque confiante. Dá uma olhada no Mercado Livre antes que acabe no estoque.",
+    link: "https://meli.la/1VCrfmX",
+    destaque: true,
+    tags: ["indicação", "kit"],
+  },
+
+  // ---- Sugestões ainda sem link (aparecem depois, com "Link em breve") ----
   {
     categoria: "varas",
     nome: "Vara de carbono 1,80 m, 20–40 lb, ação média",
