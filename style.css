@@ -209,6 +209,7 @@ h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); margin: 0 0 6px; color: var(--rio)
   background: #ffe600;
   color: #2d3277;
   font-weight: 800;
+  box-shadow: 0 4px 12px rgba(255,230,0,.35);
   text-decoration: none;
   transition: filter .15s ease;
 }

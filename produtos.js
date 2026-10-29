@@ -20,6 +20,7 @@
 */
 
 const CATEGORIAS = {
+  indicados:  { titulo: "Indicações",              emoji: "⭐" },
   varas:      { titulo: "Varas",                   emoji: "🎣" },
   molinetes:  { titulo: "Molinetes e carretilhas", emoji: "⚙️" },
   linhas:     { titulo: "Linhas",                  emoji: "🧵" },
@@ -29,6 +30,54 @@ const CATEGORIAS = {
 };
 
 const PRODUTOS = [
+  // ---- Indicações com link de afiliado ----
+  {
+    categoria: "indicados",
+    nome: "Molinete Shimano IX 4000R (fricção traseira)",
+    descricao: "Shimano de entrada que não deixa na mão: mais de 10 mil vendidos e nota 4.8. A fricção fica atrás, então dá pra soltar ou apertar o drag no meio da briga sem enfiar a mão perto da linha. Arraste de até 6,8 kg: com calma no drag, cansa até hulk grande.",
+    link: "https://meli.la/2xc1usP",
+    destaque: true,
+    tags: ["molinete", "shimano", "fricção traseira", "drag", "iniciante"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Vara Albatroz Missouri 2,10 m, 40 lb, para carretilha",
+    descricao: "Fibra de vidro maciça: verga até a ponta e não quebra fácil, perfeita pra quem tá começando e ainda erra a mão no drag. Os 2,10 m dão alavanca e arremesso longe pra alcançar o cardume no meio do tanque. Custo-benefício raiz pro pesqueiro.",
+    link: "https://meli.la/2REMDbi",
+    tags: ["vara", "carretilha", "fibra maciça", "iniciante", "pesqueiro"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Vara Albatroz Missouri 2,10 m, 40 lb, para molinete",
+    descricao: "A mesma Missouri parruda, agora pra quem é time molinete. Mais de mil vendidas: aguenta pancada de redondo, perdoa erro e cabe no bolso. Combina certinho com o Shimano IX daqui da lista.",
+    link: "https://meli.la/2LjrnZ2",
+    destaque: true,
+    tags: ["vara", "molinete", "fibra maciça", "iniciante", "kit"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Vara Marine Sports Giant Catfish 1,98 m, 60–120 lb, para carretilha",
+    descricao: "Arma de pegar monstro. Carbono, ação rápida e resistência de até 120 lb: feita pra bagre gigante, então segura hulk de 20 kg e verdão bitelo sem tremer. Leve na mão e com a fisgada na hora. É pra quem já pesca e quer subir de nível.",
+    link: "https://meli.la/1gFFBtq",
+    destaque: true,
+    tags: ["vara", "carretilha", "carbono", "pesada", "bitelo", "hulk"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Vara Maruri Austin Tamba 1,80 m, 60 lb, para carretilha",
+    descricao: "Tem \"Tamba\" no nome e não é à toa: vara de pesqueiro feita pro redondo. 60 lb, ação rápida pra cravar o anzol na boca dura do tambaqui e 1,80 m que não atrapalha no tanque cheio de gente. A ponteira laranja ajuda a ver a beliscada.",
+    link: "https://meli.la/29M6spj",
+    tags: ["vara", "carretilha", "tamba", "pesqueiro", "ação rápida"],
+  },
+  {
+    categoria: "indicados",
+    nome: "Vara Maruri Austin Tamba 1,80 m, 60 lb, para molinete",
+    descricao: "A Austin Tamba na versão molinete: mesma força de 60 lb, ação rápida e fibra de vidro que aguenta tranco. Bota um molinete 4000 nela e vai pro tanque buscar o verdão.",
+    link: "https://meli.la/1VCrfmX",
+    tags: ["vara", "molinete", "tamba", "pesqueiro", "ação rápida"],
+  },
+
+  // ---- Sugestões ainda sem link (aparecem depois, com "Link em breve") ----
   {
     categoria: "varas",
     nome: "Vara de carbono 1,80 m, 20–40 lb, ação média",

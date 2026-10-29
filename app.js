@@ -65,7 +65,7 @@
       link.href = p.link;
       link.target = "_blank";
       link.rel = "sponsored noopener";
-      link.textContent = "Ver no Mercado Livre";
+      link.textContent = "Ver no Mercado Livre →";
     } else {
       link.classList.add("sem-link");
       link.textContent = "Link em breve";
@@ -84,7 +84,7 @@
         const alvo = normaliza([p.nome, p.descricao, ...(p.tags || [])].join(" "));
         return alvo.includes(termo);
       })
-      .sort((a, b) => (b.destaque ? 1 : 0) - (a.destaque ? 1 : 0));
+      .sort((a, b) => (b.link ? 2 : 0) + (b.destaque ? 1 : 0) - ((a.link ? 2 : 0) + (a.destaque ? 1 : 0)));
 
     grade.replaceChildren(...lista.map(criaCard));
     vazio.hidden = lista.length > 0;
